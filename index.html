@@ -178,11 +178,11 @@
                         <p className="text-gray-500 text-lg">Organize estes documentos para darmos entrada no processo imediatamente.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div className="max-w-3xl mx-auto">
                         
                         {/* Sócio Column */}
                         <div className="space-y-8">
-                        <div className="flex items-center gap-3 mb-6">
+                        <div className="flex items-center gap-3 mb-6 justify-center">
                             <div className="p-2 bg-emerald-100 rounded-lg text-emerald-700">
                             <User size={24} />
                             </div>
@@ -196,37 +196,6 @@
                             { title: "Certidão de Casamento", desc: "Apenas se aplicável ao seu estado civil." },
                             { title: "Imposto de Renda (IRPF)", desc: "Última declaração completa + recibo de entrega." },
                             { title: "Certificado Digital (e-CPF)", desc: "Essencial para assinaturas digitais no processo." }
-                            ].map((item, idx) => (
-                            <li key={idx} className="flex gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors">
-                                <div className="mt-1 min-w-[20px] text-emerald-500">
-                                <Check size={20} strokeWidth={3} />
-                                </div>
-                                <div>
-                                <h4 className="font-semibold text-gray-900">{item.title}</h4>
-                                <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
-                                </div>
-                            </li>
-                            ))}
-                        </ul>
-                        </div>
-
-                        {/* Empresa Column */}
-                        <div className="space-y-8">
-                        <div className="flex items-center gap-3 mb-6">
-                            <div className="p-2 bg-emerald-100 rounded-lg text-emerald-700">
-                            <Building2 size={24} />
-                            </div>
-                            <h3 className="text-2xl font-bold text-gray-900">Da Empresa</h3>
-                        </div>
-
-                        <ul className="space-y-4">
-                            {[
-                            { title: "Endereço Comercial + IPTU", desc: "Cópia do espelho do IPTU para viabilidade." },
-                            { title: "Atividades (CNAEs)", desc: "Definição do que a empresa fará (serviços/vendas)." },
-                            { title: "Razão Social e Fantasia", desc: "Nome formal da empresa e nome comercial (opcional)." },
-                            { title: "Capital Social", desc: "Valor do investimento inicial no negócio." },
-                            { title: "Dados de Contato", desc: "E-mail e telefone corporativo." },
-                            { title: "Natureza e Porte", desc: "Ex: MEI, EI, LTDA (ME ou EPP)." }
                             ].map((item, idx) => (
                             <li key={idx} className="flex gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors">
                                 <div className="mt-1 min-w-[20px] text-emerald-500">
