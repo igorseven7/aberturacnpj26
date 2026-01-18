@@ -1,0 +1,232 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Check, 
+  Clock, 
+  CreditCard, 
+  FileText, 
+  Building2, 
+  User, 
+  MessageCircle, 
+  ChevronRight,
+  ArrowRight
+} from 'lucide-react';
+
+const App = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const whatsappNumber = "5521920194389";
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=Ol%C3%A1%2C%20gostaria%20de%20iniciar%20a%20abertura%20da%20minha%20empresa%20com%20a%20Carva.`;
+
+  return (
+    <div className="min-h-screen bg-[#F5F5F7] text-gray-900 font-sans selection:bg-emerald-200">
+      
+      {/* Navigation */}
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 backdrop-blur-md border-b border-gray-200 py-3' : 'bg-transparent py-6'}`}>
+        <div className="max-w-5xl mx-auto px-6 flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-emerald-600 rounded-lg flex items-center justify-center text-white font-bold text-lg">C</div>
+            <span className="font-semibold text-xl tracking-tight">Carva Assessoria</span>
+          </div>
+          <a 
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:flex items-center gap-2 bg-black text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-emerald-600 transition-colors duration-300"
+          >
+            Falar no WhatsApp
+            <ArrowRight size={16} />
+          </a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="pt-32 pb-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider mb-4 block animate-fade-in">Abertura de Empresas</span>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-gray-900 leading-[1.1]">
+            Comece o seu negócio <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-400">do jeito certo.</span>
+          </h1>
+          <p className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Orientação completa, agilidade no registro e transparência total. 
+            Transformamos a burocracia em um processo simples para você focar no que importa.
+          </p>
+          <div className="flex justify-center gap-4">
+            <a 
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-emerald-600 text-white text-lg px-8 py-4 rounded-full font-medium hover:bg-emerald-700 transition-all duration-300 shadow-lg shadow-emerald-600/20 flex items-center gap-2"
+            >
+              Iniciar Abertura
+              <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </div>
+      </header>
+
+      {/* Highlights / Bento Grid Style */}
+      <section className="px-6 pb-24">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          {/* Investment Card */}
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+            <div className="w-12 h-12 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6">
+              <CreditCard size={24} />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-500 mb-2">Investimento Total</h3>
+            <div className="flex items-baseline gap-2">
+              <span className="text-4xl font-bold text-gray-900">R$ 2.500</span>
+              <span className="text-gray-400 font-medium">/ processo</span>
+            </div>
+            <p className="mt-4 text-sm text-gray-400">*Taxas governamentais não inclusas.</p>
+          </div>
+
+          {/* Timeline Card */}
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+            <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+              <Clock size={24} />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-500 mb-2">Prazo Estimado</h3>
+            <div className="flex items-baseline gap-2">
+              <span className="text-4xl font-bold text-gray-900">7 Dias</span>
+              <span className="text-gray-400 font-medium">úteis</span>
+            </div>
+            <p className="mt-4 text-sm text-gray-500">Registro ágil via RCPJ (Registro Civil de Pessoas Jurídicas RJ).</p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Documents Section */}
+      <section className="px-6 py-24 bg-white border-t border-gray-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-4">Documentação Necessária</h2>
+            <p className="text-gray-500 text-lg">Organize estes documentos para darmos entrada no processo imediatamente.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            
+            {/* Sócio Column */}
+            <div className="space-y-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-emerald-100 rounded-lg text-emerald-700">
+                  <User size={24} />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Dos Sócios</h3>
+              </div>
+              
+              <ul className="space-y-4">
+                {[
+                  { title: "RG e CPF (ou CNH)", desc: "Documento de identificação válido." },
+                  { title: "Comprovante de Residência", desc: "Atualizado (conta de luz, água ou telefone)." },
+                  { title: "Certidão de Casamento", desc: "Apenas se aplicável ao seu estado civil." },
+                  { title: "Imposto de Renda (IRPF)", desc: "Última declaração completa + recibo de entrega." },
+                  { title: "Certificado Digital (e-CPF)", desc: "Essencial para assinaturas digitais no processo." }
+                ].map((item, idx) => (
+                  <li key={idx} className="flex gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <div className="mt-1 min-w-[20px] text-emerald-500">
+                      <Check size={20} strokeWidth={3} />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{item.title}</h4>
+                      <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Empresa Column */}
+            <div className="space-y-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-emerald-100 rounded-lg text-emerald-700">
+                  <Building2 size={24} />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Da Empresa</h3>
+              </div>
+
+              <ul className="space-y-4">
+                {[
+                  { title: "Endereço Comercial + IPTU", desc: "Cópia do espelho do IPTU para viabilidade." },
+                  { title: "Atividades (CNAEs)", desc: "Definição do que a empresa fará (serviços/vendas)." },
+                  { title: "Razão Social e Fantasia", desc: "Nome formal da empresa e nome comercial (opcional)." },
+                  { title: "Capital Social", desc: "Valor do investimento inicial no negócio." },
+                  { title: "Dados de Contato", desc: "E-mail e telefone corporativo." },
+                  { title: "Natureza e Porte", desc: "Ex: MEI, EI, LTDA (ME ou EPP)." }
+                ].map((item, idx) => (
+                  <li key={idx} className="flex gap-4 p-4 rounded-2xl bg-gray-50 hover:bg-gray-100 transition-colors">
+                    <div className="mt-1 min-w-[20px] text-emerald-500">
+                      <Check size={20} strokeWidth={3} />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">{item.title}</h4>
+                      <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="px-6 py-24 bg-[#111] text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-600 rounded-full blur-[120px] opacity-20 translate-x-1/2 -translate-y-1/2"></div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 tracking-tight">Pronto para dar o próximo passo?</h2>
+          <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+            Nossa equipe está pronta para receber seus documentos e iniciar o processo de abertura hoje mesmo.
+          </p>
+          <a 
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-emerald-600 text-white text-lg px-8 py-4 rounded-full font-medium hover:bg-emerald-500 transition-all duration-300 transform hover:scale-105"
+          >
+            <MessageCircle size={24} />
+            Falar com Especialista
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 py-12 px-6">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 bg-emerald-600 rounded-md flex items-center justify-center text-white font-bold text-xs">C</div>
+            <span className="font-semibold text-gray-900">Carva Assessoria</span>
+          </div>
+          <div className="text-sm text-gray-500">
+            © {new Date().getFullYear()} Carva Assessoria Contábil. Todos os direitos reservados.
+          </div>
+        </div>
+      </footer>
+
+      {/* Floating Action Button (Mobile) */}
+      <a 
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#20bd5a] transition-colors md:hidden z-50"
+        aria-label="Contato WhatsApp"
+      >
+        <MessageCircle size={28} />
+      </a>
+
+    </div>
+  );
+};
+
+export default App;
